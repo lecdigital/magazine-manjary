@@ -1,8 +1,6 @@
 // ============================================================================
 // MANJARY (மஞ்சரி) - PRISMA SCHEMA
-// Local Phase: provider = "sqlite"
-// Hostinger Phase: Change provider = "mysql" and run `npx prisma db push`
-// All types below are 100% compatible with both SQLite and MySQL.
+// Configured for Hostinger MySQL Production (`u252507508_manjarydb`)
 // ============================================================================
 
 generator client {
@@ -10,7 +8,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -29,10 +27,10 @@ model SubscriptionPlan {
   id              String         @id @default(cuid())
   nameTa          String
   nameEn          String
-  descriptionTa   String
-  descriptionEn   String
-  perksTa         String         @default("")
-  perksEn         String         @default("")
+  descriptionTa   String         @db.Text
+  descriptionEn   String         @db.Text
+  perksTa         String         @db.Text
+  perksEn         String         @db.Text
   amount          Int            // Stored in minor units (cents, e.g. 999 = $9.99)
   currency        String         @default("usd")
   billingInterval String         @default("month") // "month" | "year"
@@ -64,8 +62,8 @@ model Post {
   id                 String    @id @default(cuid())
   title              String
   slug               String    @unique
-  excerpt            String
-  content            String
+  excerpt            String    @db.Text
+  content            String    @db.LongText
   category           String    @default("SHORT_STORY") // "SHORT_STORY" | "NOVEL_CHAPTER" | "ARTICLE"
   bookTitle          String    @default("")
   chapterNumber      Int       @default(1)
@@ -85,13 +83,12 @@ model MagazineIssue {
   month         String
   year          Int
   title         String
-  subtitle      String   @default("")
-  description   String   @default("")
-  highlights    String   @default("")
-  coverImageUrl String
-  pdfUrl        String
+  subtitle      String   @db.Text
+  description   String   @db.Text
+  highlights    String   @db.Text
+  coverImageUrl String   @db.Text
+  pdfUrl        String   @db.Text
   isPublished   Boolean  @default(true)
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }
-
