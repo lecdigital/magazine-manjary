@@ -84,7 +84,7 @@ export default async function NovelsPage({
 
               {/* Excerpt Preview Box */}
               <div className="rounded-xl bg-parchment-100 border border-parchment-300 p-4 font-serif text-sm text-stone-800 leading-relaxed line-clamp-3">
-                {chapter.content}
+                {chapter.content.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()}
               </div>
 
               <div className="pt-2">

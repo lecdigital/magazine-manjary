@@ -11,10 +11,99 @@
   }
 }
 
-/* Custom literary styling for Tamil Unicode readability */
-.tamil-prose p {
+/* Custom literary styling for Tamil Unicode readability & Rich Text Media */
+.tamil-prose p,
+.tamil-rich-content p {
   line-height: 2.05;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.4rem;
   letter-spacing: 0.01em;
 }
 
+.tamil-prose h2,
+.tamil-rich-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1C1917;
+  margin-top: 2rem;
+  margin-bottom: 0.85rem;
+  line-height: 1.4;
+}
+
+.tamil-prose h3,
+.tamil-rich-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #7F1D1D;
+  margin-top: 1.6rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.45;
+}
+
+.tamil-prose blockquote,
+.tamil-rich-content blockquote {
+  border-left: 4px solid #7F1D1D;
+  background-color: #FAF6EE;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  border-radius: 0 0.75rem 0.75rem 0;
+  font-style: italic;
+  color: #292524;
+}
+
+.tamil-prose ul,
+.tamil-rich-content ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.4rem;
+}
+
+.tamil-prose ol,
+.tamil-rich-content ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1.4rem;
+}
+
+.tamil-prose li,
+.tamil-rich-content li {
+  margin-bottom: 0.4rem;
+  line-height: 1.9;
+}
+
+.tamil-prose figure,
+.tamil-rich-content figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.tamil-prose img,
+.tamil-rich-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 20px -2px rgba(28, 25, 23, 0.08);
+}
+
+.tamil-prose figcaption,
+.tamil-rich-content figcaption {
+  font-size: 0.825rem;
+  color: #57534E;
+  margin-top: 0.65rem;
+  font-style: italic;
+}
+
+.tamil-prose hr,
+.tamil-rich-content hr {
+  border: 0;
+  border-top: 1px solid #E6D7C3;
+  margin: 2rem 0;
+}
+
+.tamil-prose a,
+.tamil-rich-content a {
+  color: #7F1D1D;
+  text-decoration: underline;
+  font-weight: 500;
+}

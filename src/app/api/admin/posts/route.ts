@@ -55,11 +55,19 @@ export async function POST(request: Request) {
         .replace(/[^a-z0-9\u0B80-\u0BFF]+/g, '-')
         .replace(/^-+|-+$/g, '') || `post-${Date.now()}`;
 
+    const plainTextExcerpt =
+      excerpt ||
+      content
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .slice(0, 180) + '...';
+
     const post = await prisma.post.create({
       data: {
         title,
         slug: cleanSlug,
-        excerpt: excerpt || content.slice(0, 180) + '...',
+        excerpt: plainTextExcerpt,
         content,
         category,
         bookTitle,

@@ -22,10 +22,16 @@ export default async function StoryReaderPage({
     notFound();
   }
 
-  const paragraphs = post.content
-    .split(/\n\s*\n/)
-    .map((p) => p.trim())
-    .filter(Boolean);
+  const isHtmlContent = /<(p|h[1-6]|div|figure|img|blockquote|ul|ol|br|strong|em)\b/i.test(
+    post.content
+  );
+
+  const paragraphs = !isHtmlContent
+    ? post.content
+        .split(/\n\s*\n/)
+        .map((p) => p.trim())
+        .filter(Boolean)
+    : [];
 
   return (
     <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -70,14 +76,21 @@ export default async function StoryReaderPage({
         </div>
       </header>
 
-      {/* Clean Tamil Unicode Reader Body */}
-      <div className="bg-white rounded-3xl border border-parchment-300 p-7 sm:p-12 shadow-2xs tamil-prose font-serif text-lg sm:text-xl text-stone-900">
-        {paragraphs.map((para, idx) => (
-          <p key={idx} className="leading-[2.1] mb-6 last:mb-0">
-            {para}
-          </p>
-        ))}
-      </div>
+      {/* Clean Tamil Unicode & Rich Media Reader Body */}
+      {isHtmlContent ? (
+        <div
+          className="bg-white rounded-3xl border border-parchment-300 p-7 sm:p-12 shadow-2xs tamil-prose font-serif text-lg sm:text-xl text-stone-900"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
+      ) : (
+        <div className="bg-white rounded-3xl border border-parchment-300 p-7 sm:p-12 shadow-2xs tamil-prose font-serif text-lg sm:text-xl text-stone-900">
+          {paragraphs.map((para, idx) => (
+            <p key={idx} className="leading-[2.1] mb-6 last:mb-0">
+              {para}
+            </p>
+          ))}
+        </div>
+      )}
 
       <div className="mt-12 rounded-2xl bg-parchment-100 border border-parchment-300 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">

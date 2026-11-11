@@ -11,6 +11,7 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import { Link } from '@/i18n/routing';
+import { RichTextEditor } from '@/components/RichTextEditor';
 
 interface PostItem {
   id: string;
@@ -301,16 +302,13 @@ export default function AdminPostsPage() {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-stone-700 mb-1">
-                முழுப் படைப்பு (Full Tamil Unicode Content) *
+              <label className="block text-xs font-semibold text-stone-700 mb-1.5">
+                முழுப் படைப்பு & படங்கள் (Rich Text & Picture Editor) *
               </label>
-              <textarea
-                rows={8}
-                required
+              <RichTextEditor
                 value={content}
-                onChange={(e) => setContent(e.target.value)}
-                placeholder="உங்கள் சிறுகதை அல்லது நாவல் அத்தியாயத்தை இங்கே தமிழ் யூனிகோடில் தட்டச்சு செய்யவும்..."
-                className="w-full rounded-xl border border-stone-300 px-4 py-3 text-base font-serif leading-relaxed"
+                onChange={setContent}
+                placeholder="உங்கள் சிறுகதை, நாவல் அத்தியாயம் அல்லது கட்டுரையை இங்கே தமிழ் யூனிகோடில் எழுதவும்... (படங்களையும் இணைக்கலாம்)"
               />
             </div>
 
