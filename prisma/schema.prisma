@@ -1,0 +1,97 @@
+// ============================================================================
+// MANJARY (மஞ்சரி) - PRISMA SCHEMA
+// Local Phase: provider = "sqlite"
+// Hostinger Phase: Change provider = "mysql" and run `npx prisma db push`
+// All types below are 100% compatible with both SQLite and MySQL.
+// ============================================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String         @id @default(cuid())
+  name          String
+  email         String         @unique
+  passwordHash  String
+  role          String         @default("SUBSCRIBER") // "ADMIN" | "SUBSCRIBER"
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  subscriptions Subscription[]
+}
+
+model SubscriptionPlan {
+  id              String         @id @default(cuid())
+  nameTa          String
+  nameEn          String
+  descriptionTa   String
+  descriptionEn   String
+  perksTa         String         @default("")
+  perksEn         String         @default("")
+  amount          Int            // Stored in minor units (cents, e.g. 999 = $9.99)
+  currency        String         @default("usd")
+  billingInterval String         @default("month") // "month" | "year"
+  stripeProductId String
+  stripePriceId   String
+  isActive        Boolean        @default(true)
+  sortOrder       Int            @default(1)
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  subscriptions   Subscription[]
+}
+
+model Subscription {
+  id                   String           @id @default(cuid())
+  userId               String
+  planId               String
+  stripeCustomerId     String
+  stripeSubscriptionId String           @unique
+  status               String           @default("active") // "active" | "canceled" | "past_due"
+  currentPeriodEnd     DateTime
+  createdAt            DateTime         @default(now())
+  updatedAt            DateTime         @updatedAt
+
+  user User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plan SubscriptionPlan @relation(fields: [planId], references: [id], onDelete: Restrict)
+}
+
+model Post {
+  id                 String    @id @default(cuid())
+  title              String
+  slug               String    @unique
+  excerpt            String
+  content            String
+  category           String    @default("SHORT_STORY") // "SHORT_STORY" | "NOVEL_CHAPTER" | "ARTICLE"
+  bookTitle          String    @default("")
+  chapterNumber      Int       @default(1)
+  authorName         String    @default("எம். தயாளன் (M. Thayalan)")
+  language           String    @default("ta") // "ta" | "en"
+  readingTimeMinutes Int       @default(6)
+  isFeatured         Boolean   @default(false)
+  isPublished        Boolean   @default(true)
+  publishedAt        DateTime? @default(now())
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+}
+
+model MagazineIssue {
+  id            String   @id @default(cuid())
+  issueNumber   Int      @unique
+  month         String
+  year          Int
+  title         String
+  subtitle      String   @default("")
+  description   String   @default("")
+  highlights    String   @default("")
+  coverImageUrl String
+  pdfUrl        String
+  isPublished   Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+

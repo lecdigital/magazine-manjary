@@ -1,0 +1,72 @@
+{
+  "Site": {
+    "title": "Manjary",
+    "subtitle": "Contemporary Tamil Literary Journal & Author Platform",
+    "author": "M. Thayalan",
+    "authorEn": "எம். தயாளன்",
+    "tagline": "Rooted in Tamil Heritage, Empowering Emerging Literary Voices"
+  },
+  "Nav": {
+    "home": "Home",
+    "manjary": "Manjary Magazine",
+    "shortStories": "Short Stories",
+    "novels": "Novels",
+    "admin": "Admin Portal",
+    "subscribe": "Subscribe",
+    "switchLang": "தமிழ்"
+  },
+  "Home": {
+    "badge": "Author & Founding Editor: M. Thayalan (எம். தயாளன்)",
+    "heroTitle": "Manjary (மஞ்சரி) — The Living Pulse of Tamil Literature",
+    "heroDescription": "A dedicated literary home for evocative short stories, serialized novels, and emerging Tamil writers around the world.",
+    "exploreMagazine": "Explore Manjary Magazine",
+    "readStories": "Read Short Stories",
+    "authorBioTitle": "M. Thayalan (எம். தயாளன்) — Literary Journey",
+    "authorBioP1": "M. Thayalan is an acclaimed Tamil fiction writer and editor whose stories capture the fragrance of native soil, generational memory, and the quiet resilience of the human spirit across the diaspora.",
+    "authorBioP2": "Driven by a commitment to mentor and publish aspiring writers, he founded 'Manjary' (மஞ்சரி) as an inclusive literary journal where new voices are published alongside seasoned masters.",
+    "latestIssue": "Latest Magazine Issue",
+    "featuredStories": "Featured Short Stories & Essays",
+    "featuredNovels": "Serialized Novels & Books",
+    "viewAll": "View All",
+    "readNow": "Read Full Piece",
+    "minutesRead": "min read"
+  },
+  "Manjary": {
+    "badge": "Monthly Tamil Literary Journal",
+    "title": "Manjary (மஞ்சரி) Literary Magazine",
+    "subtitle": "An Open Door for Aspiring Tamil Writers — Edited by M. Thayalan",
+    "missionTitle": "Editorial Mission Statement",
+    "missionText": "Manjary was founded with a singular mission: to discover, mentor, and publish aspiring Tamil writers who long for a welcoming literary stage. Every issue pairs established literary voices with carefully edited debut stories, poems, and critical essays.",
+    "guidelinesTitle": "Submission Guidelines for Writers",
+    "guideline1": "Short stories should be 1,000–3,500 words typed in clean Tamil Unicode.",
+    "guideline2": "Submissions must be original, previously unpublished works in print or digital media.",
+    "guideline3": "First-time authors receive constructive editorial notes and guidance from M. Thayalan's editorial desk.",
+    "archiveTitle": "Manjary Issue Archive",
+    "pricingTitle": "Manjary Subscription Plans",
+    "pricingSubtitle": "Support independent Tamil literature and emerging writers by choosing a membership tier",
+    "subscribeBtn": "Subscribe with Stripe",
+    "readIssue": "Preview Issue",
+    "issueLabel": "Issue"
+  },
+  "Stories": {
+    "badge": "Works by M. Thayalan & Manjary Contributors",
+    "title": "Short Stories & Literary Essays",
+    "subtitle": "A distraction-free Tamil Unicode reading room featuring stories of memory, homeland, and human connection.",
+    "allCategories": "All Works",
+    "shortStories": "Short Stories",
+    "articles": "Editorial Essays",
+    "readFullStory": "Read Full Story"
+  },
+  "Novels": {
+    "badge": "Long-Form Fiction & Serialized Books",
+    "title": "Novels by M. Thayalan",
+    "subtitle": "Explore multi-generational sagas, synopses, and complete sample chapters.",
+    "readChapter": "Read Chapter",
+    "chapter": "Chapter"
+  },
+  "Footer": {
+    "description": "The official literary platform of author M. Thayalan (எம். தயாளன்) and Manjary Monthly Tamil Magazine.",
+    "rights": "All rights reserved."
+  }
+}
+
