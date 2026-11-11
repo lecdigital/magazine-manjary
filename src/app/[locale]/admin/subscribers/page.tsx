@@ -107,7 +107,7 @@ export default function AdminSubscribersPage() {
             சந்தாதாரர்கள் பட்டியல் (/admin/subscribers)
           </h1>
           <p className="text-sm text-stone-600 mt-1">
-            Monitor active readers, subscription tiers, Stripe subscription IDs, and renewal dates.
+            Monitor active readers, subscription tiers, membership status, and renewal dates.
           </p>
         </div>
       </div>
@@ -181,7 +181,6 @@ export default function AdminSubscribersPage() {
               <tr className="border-b border-parchment-300 bg-parchment-100 text-xs font-bold uppercase tracking-wider text-stone-600">
                 <th className="py-3.5 px-5">Reader (வாசகர்)</th>
                 <th className="py-3.5 px-5">Plan (திட்டம்)</th>
-                <th className="py-3.5 px-5">Stripe Sub ID</th>
                 <th className="py-3.5 px-5">Status</th>
                 <th className="py-3.5 px-5">Period End</th>
                 <th className="py-3.5 px-5 text-right">Action</th>
@@ -190,13 +189,13 @@ export default function AdminSubscribersPage() {
             <tbody className="divide-y divide-stone-100 text-sm">
               {loading ? (
                 <tr>
-                  <td colSpan={6} className="py-10 text-center text-stone-400">
+                  <td colSpan={5} className="py-10 text-center text-stone-400">
                     Loading subscribers...
                   </td>
                 </tr>
               ) : subscriptions.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="py-10 text-center text-stone-400">
+                  <td colSpan={5} className="py-10 text-center text-stone-400">
                     No subscribers found.
                   </td>
                 </tr>
@@ -219,9 +218,6 @@ export default function AdminSubscribersPage() {
                         ${(sub.plan.amount / 100).toFixed(2)} /{' '}
                         {sub.plan.billingInterval}
                       </div>
-                    </td>
-                    <td className="py-4 px-5 font-mono text-xs text-stone-500">
-                      {sub.stripeSubscriptionId}
                     </td>
                     <td className="py-4 px-5">
                       <span

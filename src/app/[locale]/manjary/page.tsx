@@ -211,14 +211,14 @@ export default async function ManjaryMagazinePage({
         </div>
       </section>
 
-      {/* Dynamic Stripe Pricing Grid */}
+      {/* Subscription Pricing Grid */}
       <section
         id="pricing"
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24"
       >
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-crimson-800/10 text-crimson-800 text-xs font-bold uppercase tracking-wider">
-            Stripe Dynamic Pricing
+            {locale === 'ta' ? 'வாசகர் சந்தா' : 'Reader Membership'}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-stone-900 mt-3">
             {t('Manjary.pricingTitle')}

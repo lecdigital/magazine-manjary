@@ -123,12 +123,10 @@ export default function AdminPlansPage() {
     setSaving(false);
 
     if (res.ok) {
-      const syncInfo = data.stripeSync;
-      const rotatedText = syncInfo?.deactivatedPriceId
-        ? ` | Deactivated old Stripe Price: ${syncInfo.deactivatedPriceId}`
-        : '';
       setSyncMessage(
-        `✅ Saved & Synced (${syncInfo?.mode}): Product ${syncInfo?.stripeProductId} → Active Price ${syncInfo?.stripePriceId}${rotatedText}`
+        editingId
+          ? '✅ சந்தாத் திட்டம் வெற்றிகரமாகப் புதுப்பிக்கப்பட்டது (Subscription plan updated)'
+          : '✅ புதிய சந்தாத் திட்டம் வெற்றிகரமாக உருவாக்கப்பட்டது (Subscription plan created)'
       );
       resetForm();
       fetchPlans();
@@ -146,13 +144,13 @@ export default function AdminPlansPage() {
     <div className="space-y-10">
       <div>
         <span className="text-xs font-bold uppercase tracking-wider text-crimson-700">
-          Dynamic Stripe Product & Price Manager
+          Subscription & Pricing Manager
         </span>
         <h1 className="font-serif text-3xl font-bold text-stone-900 mt-1">
           சந்தாத் திட்டங்கள் & கட்டண மேலாண்மை (/admin/plans)
         </h1>
         <p className="text-sm text-stone-600 mt-1">
-          Create or edit bilingual subscription plans. Changing the price or billing interval automatically generates a new Stripe Price ID, archives the previous price, and updates the local database.
+          Create or edit bilingual subscription plans, pricing, billing intervals, and reader benefits.
         </p>
       </div>
 
@@ -349,15 +347,15 @@ export default function AdminPlansPage() {
               {saving ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>Syncing with Stripe & Saving...</span>
+                  <span>Saving Plan...</span>
                 </>
               ) : (
                 <>
                   <RefreshCw className="w-4 h-4" />
                   <span>
                     {editingId
-                      ? 'Update Plan & Rotate Stripe Price'
-                      : 'Create Plan & Generate Stripe Price'}
+                      ? 'Update Subscription Plan'
+                      : 'Create Subscription Plan'}
                   </span>
                 </>
               )}
@@ -400,15 +398,6 @@ export default function AdminPlansPage() {
                     {plan.nameEn}
                   </p>
                   <p className="text-xs text-stone-600">{plan.descriptionTa}</p>
-
-                  <div className="pt-2 flex flex-wrap items-center gap-3 text-[11px] font-mono text-stone-500">
-                    <span className="px-2 py-0.5 rounded bg-parchment-100 border border-parchment-300">
-                      Product: {plan.stripeProductId}
-                    </span>
-                    <span className="px-2 py-0.5 rounded bg-amber-50 border border-amber-200 text-amber-900">
-                      Price: {plan.stripePriceId}
-                    </span>
-                  </div>
                 </div>
 
                 <div className="flex sm:flex-col items-end justify-between gap-3 shrink-0">

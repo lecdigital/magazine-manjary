@@ -1,6 +1,5 @@
 import { Link } from '@/i18n/routing';
 import { prisma } from '@/lib/prisma';
-import { isLiveStripeConfigured } from '@/lib/stripe';
 import {
   CreditCard,
   Users,
@@ -25,12 +24,12 @@ export default async function AdminOverviewPage() {
 
   const cards = [
     {
-      title: 'Stripe Subscription Tiers',
+      title: 'Subscription Tiers',
       titleTa: 'சந்தாத் திட்டங்கள்',
       count: planCount,
       href: '/admin/plans',
       icon: CreditCard,
-      desc: 'Add or edit bilingual plans. Updating prices automatically rotates Stripe Price IDs.',
+      desc: 'Add or edit bilingual subscription plans, pricing, intervals, and reader perks.',
     },
     {
       title: 'Active Subscribers',
@@ -73,14 +72,11 @@ export default async function AdminOverviewPage() {
         <div className="flex flex-wrap items-center gap-2 text-xs">
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-900 font-semibold">
             <Database className="w-3.5 h-3.5 text-emerald-700" />
-            <span>DB: Local SQLite (MySQL Ready)</span>
+            <span>Database Connected</span>
           </span>
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-50 border border-amber-200 text-amber-900 font-semibold">
             <CheckCircle2 className="w-3.5 h-3.5 text-amber-700" />
-            <span>
-              Stripe:{' '}
-              {isLiveStripeConfigured ? 'Live API Mode' : 'Local Simulated Sync'}
-            </span>
+            <span>Subscriptions Active</span>
           </span>
         </div>
       </div>

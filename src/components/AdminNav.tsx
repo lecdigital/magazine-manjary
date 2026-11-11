@@ -16,7 +16,7 @@ export function AdminNav({ userEmail }: { userEmail?: string | null }) {
 
   const items = [
     { href: '/admin', label: 'Overview', labelTa: 'மேற்பார்வை', icon: LayoutDashboard },
-    { href: '/admin/plans', label: 'Stripe Plans', labelTa: 'சந்தாத் திட்டங்கள்', icon: CreditCard },
+    { href: '/admin/plans', label: 'Subscription Plans', labelTa: 'சந்தாத் திட்டங்கள்', icon: CreditCard },
     { href: '/admin/subscribers', label: 'Subscribers', labelTa: 'சந்தாதாரர்கள்', icon: Users },
     { href: '/admin/posts', label: 'Stories & Novels CMS', labelTa: 'படைப்புகள் CMS', icon: FileText },
     { href: '/admin/issues', label: 'Magazine Issues', labelTa: 'இதழ்கள் CMS', icon: BookMarked },

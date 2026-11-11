@@ -74,7 +74,7 @@ export function Footer() {
                 className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-stone-800 hover:bg-stone-700 text-xs font-medium text-amber-300 border border-stone-700 transition"
               >
                 <Shield className="w-3.5 h-3.5" />
-                <span>Admin CMS & Stripe Pricing</span>
+                <span>Admin Portal</span>
               </Link>
             </div>
           </div>
@@ -85,7 +85,7 @@ export function Footer() {
             © {new Date().getFullYear()} Manjary (மஞ்சரி) — M. Thayalan (எம். தயாளன்). {t('Footer.rights')}
           </p>
           <p className="text-stone-500">
-            Local-First SQLite • Hostinger MySQL Ready • Next.js + Prisma + Stripe
+            மஞ்சரி தமிழ் இலக்கிய இதழ் • Manjary Literary Platform
           </p>
         </div>
       </div>

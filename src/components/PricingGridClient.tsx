@@ -189,13 +189,6 @@ export function PricingGridClient({
                   <CreditCard className="w-4 h-4" />
                   <span>{subscribeLabel}</span>
                 </button>
-                <p
-                  className={`mt-2 text-[11px] text-center font-mono ${
-                    isHighlighted ? 'text-stone-400' : 'text-stone-400'
-                  }`}
-                >
-                  Stripe Price: {plan.stripePriceId}
-                </p>
               </div>
             </div>
           );
@@ -209,7 +202,7 @@ export function PricingGridClient({
             <div className="flex items-center justify-between border-b border-stone-200 pb-4">
               <div>
                 <span className="text-xs font-semibold uppercase tracking-wider text-crimson-700">
-                  Stripe Dynamic Checkout
+                  {locale === 'ta' ? 'மஞ்சரி சந்தா பதிவு' : 'Manjary Subscription'}
                 </span>
                 <h4 className="font-serif text-xl font-bold text-stone-900 mt-0.5">
                   {locale === 'ta' ? selectedPlan.nameTa : selectedPlan.nameEn}
